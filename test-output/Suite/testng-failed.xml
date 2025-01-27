@@ -6,9 +6,16 @@
   </listeners>
   <test thread-count="4" parallel="classes" name="Test(failed)">
     <classes>
+      <class name="com.testCases.AutomationBlogSpot">
+        <methods>
+          <include name="firstTestCase" invocation-numbers="0"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.testCases.AutomationBlogSpot -->
       <class name="com.testCases.PaginationTests">
         <methods>
           <include name="getPriceofProduct"/>
+          <include name="checkProduct"/>
           <include name="shadowDom"/>
           <include name="tearDown"/>
         </methods>

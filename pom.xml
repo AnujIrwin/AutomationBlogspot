@@ -63,8 +63,11 @@
         <version>3.0.0-M6</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>testng.xml</suiteXmlFile>
+            <suiteXmlFile>${xmlFiles}</suiteXmlFile>
           </suiteXmlFiles>
+          <suitePropertyVariables>
+			<executionBrowser>${browser}</executionBrowser>
+		  </suitePropertyVariables>
         </configuration>
       </plugin>
       </plugins>

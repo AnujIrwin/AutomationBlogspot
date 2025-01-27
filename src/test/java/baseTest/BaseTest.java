@@ -35,12 +35,12 @@ public class BaseTest {
 		String browser =prop.getProperty("browser");
 		String webSite = prop.getProperty("website");
 		
-		if (browser.equalsIgnoreCase("chrome")) {
+		if (System.getProperty("browser").equalsIgnoreCase("chrome")) {
 			driver =  new ChromeDriver();
 			driver.get(webSite);
 			
 		}
-		else if(browser.equalsIgnoreCase("firefox")) {
+		else if(System.getProperty("browser").equalsIgnoreCase("firefox")) {
 			driver =  new FirefoxDriver();
 			driver.get(webSite);
 		}
