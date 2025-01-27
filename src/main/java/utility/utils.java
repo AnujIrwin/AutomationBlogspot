@@ -20,4 +20,10 @@ public class utils  {
 		js.executeScript("arguments[0].click();", element);
 	}
 	
+	public WebElement getElementusindJavaScript(WebDriver driver,WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebElement shadowRoot = (WebElement)js.executeScript("return arguments[0].shadowRoot", element);
+		return shadowRoot;
+	}
+	
 }

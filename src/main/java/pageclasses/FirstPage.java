@@ -3,7 +3,9 @@ package pageclasses;
 import java.util.HashMap;
 import java.util.List;
 
+import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,6 +29,7 @@ public class FirstPage extends utils {
 	@FindBy(xpath = "//*[@id='productTable']//tbody//tr") List<WebElement> tableColumn;
 	@FindBy(xpath = "//*[@id='productTable']//tbody//tr//td[2]") List<WebElement> nameColumn;
 	@FindBy(xpath = "//*[@id='pagination']/li" ) List<WebElement> pages;
+	@FindBy(xpath = "//div[@id='shadow_host']") WebElement shadowHost;
 	
 	public void fillDetails(HashMap<String,String> map) {
 		name.sendKeys(map.get("name"));
@@ -94,5 +97,18 @@ public class FirstPage extends utils {
 			}
 			
 		}
+	}
+	
+	public  String workWithShadowDom(String name) throws InterruptedException {
+		shadowHost.click();
+		SearchContext shadowRoot = shadowHost.getShadowRoot();
+		Thread.sleep(2000);
+		WebElement innerElement = shadowRoot.findElement(By.cssSelector("#shadow_content"));
+		WebElement textBox = shadowRoot.findElement(By.cssSelector("input[type='text']"));
+//		WebElement shadowRoot = getElementusindJavaScript(driver,shadowHost);
+//		WebElement innerElement = shadowRoot.findElement(By.xpath("//span[@id='shadow_content']"));
+		textBox.sendKeys(name);
+		String value = (textBox.getDomProperty("value"));
+		return value;
 	}
 }

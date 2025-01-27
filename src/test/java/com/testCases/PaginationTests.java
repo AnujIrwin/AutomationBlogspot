@@ -2,6 +2,7 @@ package com.testCases;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,7 +17,7 @@ public class PaginationTests extends BaseTest{
 		WebDriver driver = getWebDriver();
 		FirstPage fp = new FirstPage(driver);
 		String price = fp.fetchValue("Desktop Computer");
-		Assert.assertEquals(price, "$2.998");
+		Assert.assertEquals(price, "$2.99");
 	}
 	
 	@Test
@@ -25,5 +26,14 @@ public class PaginationTests extends BaseTest{
 		FirstPage fp = new FirstPage(driver);
 		fp.checkProduct("Desktop Computer");
 		Thread.sleep(5000);
+	}
+	
+	@Test
+	public void shadowDom(String name) throws IOException, InterruptedException {
+		WebDriver driver = getWebDriver();
+		FirstPage fp = new FirstPage(driver);
+		String value = fp.workWithShadowDom(name);
+		Assert.assertEquals(value, name);
+		
 	}
 }

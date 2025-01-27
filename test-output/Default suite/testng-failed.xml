@@ -5,8 +5,8 @@
     <classes>
       <class name="com.testCases.PaginationTests">
         <methods>
-          <include name="getPriceofProduct"/>
           <include name="tearDown"/>
+          <include name="shadowDom"/>
         </methods>
       </class> <!-- com.testCases.PaginationTests -->
     </classes>

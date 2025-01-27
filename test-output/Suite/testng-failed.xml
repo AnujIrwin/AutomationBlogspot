@@ -9,6 +9,7 @@
       <class name="com.testCases.PaginationTests">
         <methods>
           <include name="getPriceofProduct"/>
+          <include name="shadowDom"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.testCases.PaginationTests -->
