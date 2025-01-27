@@ -29,10 +29,11 @@ public class PaginationTests extends BaseTest{
 	}
 	
 	@Test
-	public void shadowDom(String name) throws IOException, InterruptedException {
+	public void shadowDom() throws IOException, InterruptedException {
 		WebDriver driver = getWebDriver();
 		FirstPage fp = new FirstPage(driver);
-		String value = fp.workWithShadowDom(name);
+		String name = "Anuj";
+		String value =  fp.workWithShadowDom(name);
 		Assert.assertEquals(value, name);
 		
 	}

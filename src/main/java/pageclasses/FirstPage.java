@@ -99,7 +99,7 @@ public class FirstPage extends utils {
 		}
 	}
 	
-	public  String workWithShadowDom(String name) throws InterruptedException {
+	public  @Nullable String workWithShadowDom(String name) throws InterruptedException {
 		shadowHost.click();
 		SearchContext shadowRoot = shadowHost.getShadowRoot();
 		Thread.sleep(2000);
@@ -108,7 +108,6 @@ public class FirstPage extends utils {
 //		WebElement shadowRoot = getElementusindJavaScript(driver,shadowHost);
 //		WebElement innerElement = shadowRoot.findElement(By.xpath("//span[@id='shadow_content']"));
 		textBox.sendKeys(name);
-		String value = (textBox.getDomProperty("value"));
-		return value;
+		return textBox.getDomProperty("value");
 	}
 }
