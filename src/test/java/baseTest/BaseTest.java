@@ -35,6 +35,9 @@ public class BaseTest {
 		String browser =prop.getProperty("browser");
 		String webSite = prop.getProperty("website");
 		
+		if(System.getProperty("browser")==null) {
+			System.setProperty("browser", "chrome");
+		}
 		if (System.getProperty("browser").equalsIgnoreCase("chrome")) {
 			driver =  new ChromeDriver();
 			driver.get(webSite);
@@ -86,7 +89,8 @@ public class BaseTest {
 	
 	public String takeScreenshot(WebDriver driver,String pathtoSave) throws IOException {
 		String newFilePath = pathtoSave.replace('.', '_').replace(':', '_');
-		String filepath = System.getProperty("user.dir")+"\\screenshots\\"+newFilePath+".png";		
+//		String filepath = System.getProperty("user.dir")+"\\screenshots\\"+newFilePath+".png";	
+		String filepath = "\\screenshots\\"+newFilePath+".png";	
 		System.out.println(filepath);
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
