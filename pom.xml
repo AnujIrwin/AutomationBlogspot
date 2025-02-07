@@ -63,10 +63,10 @@
         <version>3.0.0-M6</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>${xmlFiles}</suiteXmlFile>
+            <suiteXmlFile>testng2.xml</suiteXmlFile>
           </suiteXmlFiles>
           <suitePropertyVariables>
-			<executionBrowser>${browser}</executionBrowser>
+			<executionBrowser>chrome</executionBrowser>
 		  </suitePropertyVariables>
         </configuration>
       </plugin>
